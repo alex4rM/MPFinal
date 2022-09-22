@@ -27,4 +27,8 @@ class RegistroController extends Controller
 
 	}
 
+	public function index(){
+		return redirect()->to('admin.index');
+	}
+
 }
