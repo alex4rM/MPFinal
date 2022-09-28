@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->engine="InnoDB";//Borrado en cascada
+            
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -22,6 +24,9 @@ return new class extends Migration
 						$table->string('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->bigInteger('id_carrera')->unsigned();
+            $table->foreign('id_carrera')->references('id')->on('carrera_profesional')->onDelete("cascade");
         });
     }
 
