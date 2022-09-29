@@ -22,7 +22,7 @@ class SessionsController extends Controller
 			if(auth()->user()->role == 'admin'){
 				return redirect()->route('admin.index');
 			}else{
-				return redirect()->to('/');
+				return redirect()->to('solicitud');
 			}
 		}
 	}

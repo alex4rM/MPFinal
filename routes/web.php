@@ -16,9 +16,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('solicitud.index');
-})->middleware('auth');
+})->middleware('auth');*/
 
 Route::get('/register',[RegistroController::class, 'create'])
 	->middleware('guest')
@@ -41,3 +41,5 @@ Route::get('/logout',[SessionsController::class, 'destroy'])
 Route::get('/admin',[AdminController::class, 'index'])
 	->middleware('auth.admin')
 	->name('admin.index');
+
+Route::resource('solicitud', \App\Http\Controllers\SolicitudController::class)->middleware('auth');

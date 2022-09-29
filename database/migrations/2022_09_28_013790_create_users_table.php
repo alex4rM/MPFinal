@@ -25,7 +25,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->bigInteger('id_carrera')->unsigned();
+            $table->bigInteger('id_carrera')->unsigned()->nullable();
             $table->foreign('id_carrera')->references('id')->on('carrera_profesional')->onDelete("cascade");
         });
     }
